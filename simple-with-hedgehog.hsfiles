@@ -40,6 +40,9 @@ executables:
     dependencies:
     - base
     - {{name}}
+    when:
+    - condition: false
+      other-modules: Paths_{{name}}
 
 tests:
   {{name}}-test:
