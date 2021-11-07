@@ -26,6 +26,8 @@ dependencies:
 
 library:
   source-dirs: src
+  default-extensions:
+  - OverloadedStrings
 
 executables:
   {{name}}-exe:
@@ -58,7 +60,6 @@ main = defaultMain
 
 {-# START_FILE test/Spec.hs #-}
 {-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE OverloadedStrings #-}
 module Main (main) where
 
 import Hedgehog
@@ -78,9 +79,6 @@ prop_returnsZero =
     Lib.someFun === 0
 
 {-# START_FILE src/Lib.hs #-}
-{-# LANGUAGE DataKinds       #-}
-{-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE TypeOperators   #-}
 module Lib
     ( someFun
     ) where
